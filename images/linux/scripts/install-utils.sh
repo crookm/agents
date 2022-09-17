@@ -1,4 +1,4 @@
 #!/bin/bash -e
 
-apt-get install jq time unzip
+apt-get install -qq jq time unzip
 

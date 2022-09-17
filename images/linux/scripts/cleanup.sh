@@ -3,8 +3,8 @@
 # free space before cleanup
 before=$(df / -Pm | awk 'NR==2{print $4}')
 
-apt-get autoremove
-apt-get clean
+apt-get -qq autoremove
+apt-get -qq clean
 rm -rf /tmp/*
 rm -rf /root/.cache
 

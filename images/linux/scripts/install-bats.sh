@@ -1,4 +1,4 @@
 #!/bin/bash -e
 
-apt install bats
+apt install -qq bats
 

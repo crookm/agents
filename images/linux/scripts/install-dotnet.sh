@@ -11,12 +11,12 @@ Pin: origin packages.microsoft.com
 Pin-Priority: 1001
 EOF
 
-apt-get update
+apt-get -qq update
 
 # install actual
 # ---
 
-apt-get install dotnet-sdk-6.0
+apt-get install -qq dotnet-sdk-6.0
 
 # tools
 

@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-apt-get install openjdk-11-jdk-headless
+apt-get install -qq openjdk-11-jdk-headless
 
 # environmental setup
 cat <<EOF >> /etc/environment

@@ -60,8 +60,7 @@ build {
     provisioner "shell" {
         inline_shebang = "/bin/bash" # do not exit fast (so we can cleanup test dir even on failure)
         inline         = [
-            "source /etc/environment",
-            "su - ci -c 'time bats -r /tmp/test'",
+            "su - ci -c 'source /etc/environment && time bats -r /tmp/test'",
             "test_result=$?",
             "rm -rf /tmp/test",
             "exit $test_result"]
