@@ -1,4 +1,4 @@
 #!/bin/bash -e
 
-apt install bats time
+apt install bats
 

@@ -37,8 +37,10 @@ build {
     provisioner "shell" {
         environment_vars = ["DEBIAN_FRONTEND=noninteractive"]
         scripts          = [
+            "${path.root}/scripts/install-utils.sh",
             "${path.root}/scripts/install-bats.sh",
-            "${path.root}/scripts/install-dotnet.sh"]
+            "${path.root}/scripts/install-dotnet.sh",
+            "${path.root}/scripts/install-jdk.sh"]
     }
 
     # cleanup
@@ -58,7 +60,7 @@ build {
         inline_shebang = "/bin/bash" # do not exit fast (so we can cleanup test dir even on failure)
         inline         = [
             "source /etc/environment",
-            "time bats -r /tmp/test",
+            "su - ci -c 'time bats -r /tmp/test'",
             "test_result=$?",
             "rm -rf /tmp/test",
             "exit $test_result"]
