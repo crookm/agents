@@ -39,6 +39,7 @@ build {
         scripts          = [
             "${path.root}/scripts/install-utils.sh",
             "${path.root}/scripts/install-bats.sh",
+            "${path.root}/scripts/install-docker.sh",
             "${path.root}/scripts/install-dotnet.sh",
             "${path.root}/scripts/install-jdk.sh"]
     }
