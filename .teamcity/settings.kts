@@ -55,7 +55,7 @@ object BuildCiAgents : BuildType({
             }
             scriptContent = """
                 packer init images/linux/debian-11.pkr.hcl
-                packer build images/linux/debian-11.pkr.hcl -var "report_output=%system.teamcity.build.workingDir%"
+                packer build -var "report_output=%system.teamcity.build.workingDir%" images/linux/debian-11.pkr.hcl
             """.trimIndent()
             formatStderrAsError = true
         }
