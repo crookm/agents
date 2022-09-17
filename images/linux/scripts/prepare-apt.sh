@@ -24,21 +24,21 @@ Acquire::http::No-Cache true;
 Acquire::BrokenProxy    true;
 EOF
 
-apt-get purge -qq unattended-upgrades
+apt-get purge unattended-upgrades
 
 # ---
 
 # update
-apt-get -qq install apt-transport-https ca-certificates curl software-properties-common
-apt-get -qq update
-apt-get -qq dist-upgrade
+apt-get install apt-transport-https ca-certificates curl software-properties-common gnupg
+apt-get update
+apt-get dist-upgrade
 
 # microsoft repository
 wget https://packages.microsoft.com/config/$LSB_DISTRIBID/$LSB_RELEASE/packages-microsoft-prod.deb
 dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 
-apt-get -qq update
+apt-get update
 
 # apt-fast install
 bash -c "$(curl -sL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)"

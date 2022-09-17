@@ -1,10 +1,10 @@
 #!/bin/bash -e
 
 # free space before cleanup
-before=$(df / -Pm | awk 'NR==2{print $4}')
+before=$(df / -Pm | awk 'NR==2{print $3}')
 
-apt-get -qq autoremove
-apt-get -qq clean
+apt-get autoremove
+apt-get clean
 rm -rf /tmp/*
 rm -rf /root/.cache
 
@@ -21,10 +21,10 @@ find /var/log -type f -regex ".*\.[0-9]$" -delete
 find /var/log/ -type f -exec cp /dev/null {} \;
 
 # free space after cleanup
-after=$(df / -Pm | awk 'NR==2{print $4}')
+after=$(df / -Pm | awk 'NR==2{print $3}')
 
 # display size
-echo "before: $before MB"
-echo "after : $after MB"
+echo "disk usage before: $before MB"
+echo "disk usage after : $after MB"
 echo "delta : $(($after-$before)) MB"
 
