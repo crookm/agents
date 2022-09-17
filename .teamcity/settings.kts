@@ -48,7 +48,7 @@ object BuildCiAgents : BuildType({
 
     steps {
         script {
-            name = "packer build"
+            name = "produce base image"
 
             conditions {
                 equals("teamcity.build.branch.is_default", "true")

@@ -42,6 +42,7 @@ build {
       "${path.root}/scripts/install-bats.sh",
       "${path.root}/scripts/install-docker.sh",
       "${path.root}/scripts/install-dotnet.sh",
+      "${path.root}/scripts/install-git.sh",
       "${path.root}/scripts/install-hashistack.sh",
       "${path.root}/scripts/install-jdk.sh"
     ]
