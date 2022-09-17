@@ -63,7 +63,6 @@ object BuildCiAgents : BuildType({
 
     triggers {
         vcs {
-            enabled = false
         }
     }
 })
