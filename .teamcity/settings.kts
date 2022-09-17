@@ -1,4 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildFeatures.XmlReport
+import jetbrains.buildServer.configs.kotlin.buildFeatures.xmlReport
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -63,6 +65,13 @@ object BuildCiAgents : BuildType({
 
     triggers {
         vcs {
+        }
+    }
+
+    features {
+        xmlReport {
+            reportType = XmlReport.XmlReportType.JUNIT
+            rules = "%system.teamcity.build.workingDir%/test_report.xml"
         }
     }
 })
