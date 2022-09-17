@@ -39,7 +39,7 @@ object BuildCiAgents : BuildType({
     publishArtifacts = PublishMode.SUCCESSFUL
 
     params {
-        param("env.DIGITALOCEAN_TOKEN", "credentialsJSON:076a1398-9a66-45bd-9d16-75cb4727b6e4")
+        password("env.DIGITALOCEAN_TOKEN", "credentialsJSON:076a1398-9a66-45bd-9d16-75cb4727b6e4")
     }
 
     vcs {
@@ -54,8 +54,6 @@ object BuildCiAgents : BuildType({
                 equals("teamcity.build.branch.is_default", "true")
             }
             scriptContent = """
-                echo "token is: ${'$'}DIGITALOCEAN_TOKEN"
-                
                 packer init images/linux/debian-11.pkr.hcl
                 packer build images/linux/debian-11.pkr.hcl
             """.trimIndent()
