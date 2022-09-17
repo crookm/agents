@@ -38,6 +38,10 @@ object BuildCiAgents : BuildType({
     allowExternalStatus = true
     publishArtifacts = PublishMode.SUCCESSFUL
 
+    params {
+        param("env.DIGITALOCEAN_TOKEN", "credentialsJSON:076a1398-9a66-45bd-9d16-75cb4727b6e4")
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
